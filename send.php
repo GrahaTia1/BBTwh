@@ -7,11 +7,6 @@
         //下面的代码用于获得当前日期和时间
         $addtime = date("Y-m-d h:i:s");//得到日期
         $link = mysqli_connect("localhost","root","123456");//PHP连接数据库
-        if( $link)
-            echo "ok!<br>";
-        else {
-            echo "bad!<br>";
-        }
         mysqli_select_db($link,"gbook");
         $insert = "insert into message(author,addtime,content,reply) values('$name','$addtime','$content','')";
         mysqli_query($link,$insert);
