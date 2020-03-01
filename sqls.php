@@ -8,17 +8,17 @@ error_reporting(0);
         $query = "select * from admin where username = '$name'";
         $result = mysqli_query($link,$query);
         if( mysqli_num_rows($result) < 1){
-            echo "该用户不存在，请重新登录!<br>";
+            echo "用户不存在<br>";
         }else{
             $info = mysqli_fetch_array($result);
             if( $info['userpass'] != $password){
-                echo "密码输入错误，请重新登录!<br>";
+                echo "密码错误<br>";
             }else{
                 //如果用户名密码都正确，则注册一个session来标记其登录状态
-                echo "hhhh<br>";
+                
                 session_start();
                 // $_SESSION["login"] = "YES";
-                echo "<script language=javascript>alert('登录成功!');location.href='manage.php';</script>";
+                echo "<script language=javascript>alert('登录成功!');location.href='index1.php';</script>";
             }
         }
         mysqli_close($link);
@@ -51,7 +51,7 @@ error_reporting(0);
                     <table border="1" width="95%" id="table1" cellspcing="0" cellpadding="0" bordercolor="#808080" style="border-collapse" height="154">
                         <tr>
                             <td colspan="2" height="29">
-                                <p align="center">欢迎管理员登录</p>
+                                <p align="center">管理员登录</p>
                             </td>
                         </tr>
                         <tr>
