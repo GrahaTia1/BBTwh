@@ -158,7 +158,7 @@ echo "浏览量：". $_SESSION['views'];
 
 <body>
 
-    <div class="wenzi">欢迎来到FINAL FANTASY XIV留言板！</div>
+    <div class="wenzi">欢迎来到昏睡红茶留言板！</div>
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -261,17 +261,17 @@ echo "浏览量：". $_SESSION['views'];
                         $query = "select * from message order by addtime desc limit $begin,$pagesize";
                         $result = mysqli_query($link,$query);
                         $datanum = mysqli_num_rows($result);
-                        //循环输出所有留言，如果管理员已经回复则同时输出回复
+                     
                         for( $i = 1; $i <= $datanum; $i++){//$datanum???
                             $info = mysqli_fetch_array($result);
                             echo "->[".$info['author']."]于".$info['addtime']."说:<br>";
                             echo "  ".$info['content']."<br>";
                             if( $info['reply'] != ""){
-                                // <b></b>显示粗体
+                               
                                 echo "<b>管理员回复:</b>".$info['reply']."<br>";
                             }
                             echo "<hr>";
-                        }//else结束
+                        }
                         echo "</td></tr></table>";
                     }
                     mysqli_close($link)
